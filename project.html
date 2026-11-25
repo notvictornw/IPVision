@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>IPVision — Entenda melhor</title>
+  <meta name="description" content="Entenda em linguagem simples como a página detecta VPN, de onde vem a localização e o que acontece com seus dados.">
+  <meta name="theme-color" content="#0b0d10">
+  <meta property="og:title" content="IPVision — Entenda melhor">
+  <meta property="og:description" content="Como funciona a detecção de VPN e o que acontece com os dados da sua conexão.">
+  <meta property="og:type" content="website">
+  <meta name="twitter:card" content="summary">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%230b0d10'/%3E%3Ccircle cx='16' cy='16' r='6' fill='%23b7ff5a'/%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
+  <div class="bg-grid" aria-hidden="true"></div>
+
+  <main class="shell prose" id="conteudo">
+    <header class="topbar">
+      <a class="brand" href="index.html"><span class="dot"></span>IPVision</a>
+      <nav class="nav" aria-label="Navegação principal">
+        <a href="index.html">Ver meu IP</a>
+      </nav>
+    </header>
+
+    <section class="panel">
+      <p class="eyebrow">Sem termos complicados</p>
+      <h1>O que você está vendo.</h1>
+      <p class="lead">Em três passos: a página descobre seu IP, pergunta de onde ele é e tenta adivinhar se existe uma VPN no caminho.</p>
+
+      <div class="steps">
+        <div class="step"><span class="step-num">1</span><div><h2>Seu IP aparece</h2><p>O endereço público da sua conexão. É como o número da casa da sua internet — ele é compartilhado com os sites que você visita.</p></div></div>
+        <div class="step"><span class="step-num">2</span><div><h2>A cidade aparece</h2><p>Um serviço público de consulta devolve a cidade e o país ligados ao IP. É aproximado: mostra a região da operadora, não onde você está fisicamente.</p></div></div>
+        <div class="step"><span class="step-num">3</span><div><h2>A VPN é avaliada</h2><p>O nome da operadora é comparado com uma lista de serviços de VPN e de hospedagem. Se bater, a página avisa.</p></div></div>
+      </div>
+    </section>
+
+    <section class="panel">
+      <p class="label">O resultado pode dizer</p>
+      <h2>O que cada frase quer dizer.</h2>
+      <div class="feature-list">
+        <div class="feature feature-home"><strong>Conexão comum</strong><span>Nada no IP sugere VPN, proxy ou servidor. Provavelmente é uma conexão de casa ou de celular.</span></div>
+        <div class="feature feature-vpn"><strong>Parece VPN ou proxy</strong><span>A operadora tem nome ligado a um serviço de VPN. Se você ligou uma VPN, isso é esperado.</span></div>
+        <div class="feature feature-hosting"><strong>Parece um servidor</strong><span>O IP pertence a uma empresa de hospedagem. É comum em servidores, não em pessoas em casa.</span></div>
+        <div class="feature"><strong>Sem dados suficientes</strong><span>O serviço não informou a operadora. Não dá para classificar — e tudo bem.</span></div>
+      </div>
+      <p class="small-note">Isso é um palpite informado, não uma prova. Uma operadora pode mudar de nome e uma VPN pode usar outro fornecedor.</p>
+    </section>
+
+    <section class="panel">
+      <p class="label">Privacidade</p>
+      <h2>O que acontece com seus dados.</h2>
+      <p class="muted">Esta página não tem banco de dados e não salva nada. A consulta vai direto para o serviço de geolocalização, que pode registrar o IP consultado conforme a política dele. Se você consultar outro IP digitado, o resultado aparece na tela e some quando você recarrega a página.</p>
+      <p class="muted">Se não quiser aparecer com a cidade aproximada, use uma VPN — a página vai mostrar a operadora da VPN, não a sua.</p>
+    </section>
+
+    <section class="panel">
+      <p class="label">Dúvidas comuns</p>
+      <h2>Perguntas rápidas.</h2>
+      <details class="details">
+        <summary>A cidade está errada. Por quê?</summary>
+        <p>A localização vem do cadastro da operadora, não do seu GPS. Se você trocou de plano ou a operadora é de outro estado, a cidade pode aparecer diferente.</p>
+      </details>
+      <details class="details">
+        <summary>Posso consultar o IP de outra pessoa?</summary>
+        <p>Pode consultar qualquer IP que você tenha motivo para consultar — por exemplo, um que apareceu no seu próprio log. A página só faz leitura pública, igual a um whois.</p>
+      </details>
+      <details class="details">
+        <summary>Por que aparece "confiança baixa"?</summary>
+        <p>Porque a classificação usa só o nome da operadora. Quando o nome não bate com nenhuma lista conhecida, a página diz "conexão comum" com confiança baixa — isso não é garantia.</p>
+      </details>
+    </section>
+
+    <div class="actions">
+      <a class="btn primary" href="index.html">Ver meu IP</a>
+    </div>
+
+    <footer class="foot">
+      <span>IPVision · explicação simples</span>
+      <span>© <span id="year">2026</span> · por <a href="https://github.com/notvictornw" target="_blank" rel="noopener">notvictornw</a></span>
+    </footer>
+  </main>
+
+  <script src="config.js"></script>
+  <script src="site.js"></script>
+</body>
+</html>

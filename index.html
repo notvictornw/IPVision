@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>IPVision — Descubra o que seu IP revela</title>
+  <meta name="description" content="Veja de onde vem sua conexão e se ela parece usar VPN ou proxy. Simples, rápido e sem cadastro.">
+  <meta name="theme-color" content="#0b0d10">
+  <meta property="og:title" content="IPVision — Descubra o que seu IP revela">
+  <meta property="og:description" content="Veja seu IP, sua localização aproximada e se a conexão parece usar VPN ou proxy.">
+  <meta property="og:type" content="website">
+  <meta name="twitter:card" content="summary">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%230b0d10'/%3E%3Ccircle cx='16' cy='16' r='6' fill='%23b7ff5a'/%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
+  <div class="bg-grid" aria-hidden="true"></div>
+
+  <main class="shell" id="conteudo">
+    <header class="topbar">
+      <a class="brand" href="index.html"><span class="dot"></span>IPVision</a>
+      <nav class="nav" aria-label="Navegação principal">
+        <a href="project.html">Entenda melhor</a>
+      </nav>
+    </header>
+
+    <section class="hero">
+      <p class="eyebrow">Ferramenta pública</p>
+      <h1>Descubra o que seu IP revela.</h1>
+      <p class="lead">Veja de onde vem sua conexão e se ela parece usar VPN ou proxy. Leva segundos — sem cadastro, sem instalação.</p>
+      <div class="actions">
+        <button id="refresh-btn" class="btn primary" type="button">Atualizar meu IP</button>
+        <button id="copy-btn" class="btn" type="button">Copiar IP</button>
+      </div>
+    </section>
+
+    <section class="panel result" aria-labelledby="resultado-titulo">
+      <div class="panel-head">
+        <div>
+          <p class="label" id="resultado-titulo">IP analisado</p>
+          <p id="ip-value" class="ip-value" aria-live="polite">Carregando...</p>
+          <p id="ip-location" class="ip-sub">Consultando a origem da conexão</p>
+          <p id="result-note" class="note" hidden></p>
+        </div>
+        <button id="back-btn" class="btn small" type="button" hidden>Voltar ao meu IP</button>
+      </div>
+
+      <p id="ip-error" class="error" role="status" hidden></p>
+
+      <div id="verdict" class="verdict" hidden>
+        <span class="verdict-mark" aria-hidden="true"></span>
+        <div>
+          <p id="verdict-label" class="verdict-label"></p>
+          <p id="verdict-text" class="verdict-text"></p>
+        </div>
+      </div>
+
+      <div class="grid">
+        <div class="card"><p class="k">Cidade</p><p id="v-city" class="v">—</p></div>
+        <div class="card"><p class="k">País</p><p id="v-country" class="v">—</p></div>
+        <div class="card"><p class="k">Operadora</p><p id="v-isp" class="v">—</p></div>
+        <div class="card"><p class="k">Horário local</p><p id="v-tz" class="v">—</p></div>
+      </div>
+
+      <details class="details">
+        <summary>Ver detalhes técnicos</summary>
+        <div class="grid detail-grid">
+          <div class="card"><p class="k">ASN</p><p id="v-asn" class="v mono">—</p></div>
+          <div class="card"><p class="k">Coordenadas</p><p id="v-coords" class="v mono">—</p></div>
+          <div class="card"><p class="k">Tipo de IP</p><p id="v-type" class="v">—</p></div>
+          <div class="card"><p class="k">Sinal encontrado</p><p id="v-evidence" class="v">—</p></div>
+          <div class="card"><p class="k">Confiança</p><p id="v-confidence" class="v">—</p></div>
+          <div class="card card-wide"><p class="k">Navegador</p><p id="v-ua" class="v small">—</p></div>
+          <div class="card card-wide"><p class="k">Tela e idioma</p><p id="v-client" class="v small">—</p></div>
+        </div>
+        <p class="small-note">A classificação compara o nome da operadora com serviços conhecidos. É um sinal, não uma prova.</p>
+      </details>
+    </section>
+
+    <section class="panel" aria-labelledby="testar-titulo">
+      <p class="label">Quer testar outro IP?</p>
+      <h2 id="testar-titulo">Cole um IP para analisar.</h2>
+      <p class="muted">Útil para conferir um endereço que apareceu num log, e-mail ou relatório.</p>
+      <form id="ip-form" class="lookup-form">
+        <label class="sr-only" for="ip-input">Endereço IP</label>
+        <input id="ip-input" type="text" inputmode="text" autocomplete="off" spellcheck="false" placeholder="Ex.: 8.8.8.8" required>
+        <button class="btn primary" type="submit">Analisar</button>
+      </form>
+      <p class="small-note">A consulta é só leitura — nada é salvo nesta página.</p>
+    </section>
+
+    <section class="panel split" aria-labelledby="explicar-titulo">
+      <div>
+        <p class="label">Em 30 segundos</p>
+        <h2 id="explicar-titulo">O que esta página faz.</h2>
+        <p class="muted">Ela pega o IP da sua conexão, pergunta a um serviço público de onde ele é e compara o nome da operadora com serviços conhecidos de VPN e hospedagem.</p>
+        <p class="muted">Se você estiver usando VPN, a operadora pode aparecer como o serviço da VPN — e a página avisa.</p>
+      </div>
+      <div class="feature-list">
+        <div class="feature"><strong>Seu IP</strong><span>O endereço público da sua conexão.</span></div>
+        <div class="feature"><strong>Localização</strong><span>Cidade e país aproximados — não é GPS.</span></div>
+        <div class="feature"><strong>VPN ou não</strong><span>Compara a operadora com serviços conhecidos.</span></div>
+        <div class="feature"><strong>Sem cadastro</strong><span>Nada é guardado por aqui.</span></div>
+      </div>
+    </section>
+
+    <footer class="foot">
+      <span>© <span id="year">2026</span> · IPVision · por <a href="https://github.com/notvictornw" target="_blank" rel="noopener">notvictornw</a></span>
+      <span><a href="project.html">Entenda melhor</a> · Dados: ipapi.co</span>
+    </footer>
+  </main>
+
+  <script src="config.js"></script>
+  <script src="site.js"></script>
+  <script src="vpn.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
