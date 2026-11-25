@@ -2,6 +2,8 @@
 
 Um site pequeno que responde uma pergunta chata: "qual é o meu IP e o que dá pra saber sobre ele?". Abre no navegador, pergunta a um serviço público de geolocalização e devolve cidade, país, operadora, horário local e um palpite sobre VPN ou proxy. Também tem um botão que mede latência, download e upload da conexão. Sem cadastro, sem conta, sem banco de dados.
 
+Isto é apenas um teste/demonstração. Não é serviço profissional, laudo nem medição oficial. A página diz isso na tela inicial, na explicação e no botão de velocidade.
+
 Endereço público: <https://notvictornw.github.io/IPVision/>
 
 ## O que aparece na tela
@@ -36,7 +38,7 @@ Não abra o `index.html` com duplo clique. Com `file://` o navegador barra a con
 ## Os arquivos
 
 - `index.html` — a página que as pessoas usam. Consulta, veredito, cartões e formulário.
-- `project.html` — a página "Entenda melhor". Explica em três passos: a consulta, o significado de cada resultado e o que acontece com os dados.
+- `project.html` — a página "Entenda melhor". Explica em quatro passos: a consulta, a cidade, a VPN e a velocidade. Também diz o que acontece com os dados.
 - `app.js` — faz a requisição, trata erro, preenche os campos, cuida do formulário e do botão de copiar.
 - `speedtest.js` — mede latência, download e upload e cuida do estado do botão de teste.
 - `vpn.js` — decide se a conexão parece VPN, servidor ou casa. É o único lugar com listas de palavras-chave.
@@ -68,7 +70,7 @@ Não tem servidor próprio nem arquivo pesado no repositório. O `speedtest.js` 
 
 O botão fica desativado enquanto o teste roda e mostra em qual etapa está. Se alguma etapa falhar, a mensagem de erro aparece no lugar do status e o botão volta. Nenhum resultado é guardado.
 
-Esses números são aproximados. O servidor mais perto, o horário e o tráfego da rede mudam o resultado, e o teste da Cloudflare não usa a mesma metodologia do Ookla. Serve para ter uma ideia da conexão, não para comparar com o contrato da operadora.
+Esses números são aproximados. O servidor mais perto, o horário e o tráfego da rede mudam o resultado, e o teste da Cloudflare não usa a mesma metodologia do Ookla. É um teste de demonstração: serve para ter uma ideia da conexão, não para comparar com o contrato da operadora nem para medição oficial.
 
 ## Testando a classificação sem navegador
 
@@ -119,6 +121,7 @@ O campo de outro IP só consulta dados públicos, na mesma linha de um `whois`. 
 
 ## Limitações conhecidas
 
+- Isto é um teste/demonstração. Não serve como laudo, prova ou medição oficial.
 - A cidade é a do cadastro da operadora, não a posição real do dispositivo. Você está em uma cidade e aparece em outra: normal.
 - A classificação usa só o nome da operadora. Confiança baixa não é garantia de nada.
 - O `ipapi.co` pode falhar ou aplicar limite de requisições. A interface mostra uma mensagem e oferece "Atualizar".
