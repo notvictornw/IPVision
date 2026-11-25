@@ -31,12 +31,13 @@
     <section class="panel">
       <p class="eyebrow">Sem termos complicados</p>
       <h1>O que você está vendo.</h1>
-      <p class="lead">Em três passos: a página descobre seu IP, pergunta de onde ele é e tenta adivinhar se existe uma VPN no caminho.</p>
+      <p class="lead">Em quatro passos: a página descobre seu IP, pergunta de onde ele é, tenta adivinhar se existe uma VPN no caminho e mede a velocidade da conexão.</p>
 
       <div class="steps">
         <div class="step"><span class="step-num">1</span><div><h2>Seu IP aparece</h2><p>O endereço público da sua conexão. É como o número da casa da sua internet — ele é compartilhado com os sites que você visita.</p></div></div>
         <div class="step"><span class="step-num">2</span><div><h2>A cidade aparece</h2><p>Um serviço público de consulta devolve a cidade e o país ligados ao IP. É aproximado: mostra a região da operadora, não onde você está fisicamente.</p></div></div>
         <div class="step"><span class="step-num">3</span><div><h2>A VPN é avaliada</h2><p>O nome da operadora é comparado com uma lista de serviços de VPN e de hospedagem. Se bater, a página avisa.</p></div></div>
+        <div class="step"><span class="step-num">4</span><div><h2>A velocidade é medida</h2><p>Se você clicar em "Iniciar teste", o navegador conversa com servidores públicos da Cloudflare para medir latência, download e upload. Nada é salvo.</p></div></div>
       </div>
     </section>
 
@@ -55,7 +56,7 @@
     <section class="panel">
       <p class="label">Privacidade</p>
       <h2>O que acontece com seus dados.</h2>
-      <p class="muted">Esta página não tem banco de dados e não salva nada. A consulta vai direto para o serviço de geolocalização, que pode registrar o IP consultado conforme a política dele. Se você consultar outro IP digitado, o resultado aparece na tela e some quando você recarrega a página.</p>
+      <p class="muted">Esta página não tem banco de dados e não salva nada. A consulta vai direto para o serviço de geolocalização, que pode registrar o IP consultado conforme a política dele. No teste de velocidade, os servidores da Cloudflare também veem o IP da sua conexão enquanto o teste roda. Se você consultar outro IP digitado, o resultado aparece na tela e some quando você recarrega a página.</p>
       <p class="muted">Se não quiser aparecer com a cidade aproximada, use uma VPN — a página vai mostrar a operadora da VPN, não a sua.</p>
     </section>
 
@@ -73,6 +74,10 @@
       <details class="details">
         <summary>Por que aparece "confiança baixa"?</summary>
         <p>Porque a classificação usa só o nome da operadora. Quando o nome não bate com nenhuma lista conhecida, a página diz "conexão comum" com confiança baixa — isso não é garantia.</p>
+      </details>
+      <details class="details">
+        <summary>Por que a velocidade muda entre um teste e outro?</summary>
+        <p>Porque o resultado depende do servidor mais perto, do horário e do tráfego da rede naquele instante. É uma medida aproximada, não o número do contrato da operadora.</p>
       </details>
     </section>
 

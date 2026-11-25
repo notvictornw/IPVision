@@ -81,6 +81,23 @@
       </details>
     </section>
 
+    <section class="panel" aria-labelledby="velocidade-titulo">
+      <p class="label">Opcional</p>
+      <h2 id="velocidade-titulo">Teste a velocidade da conexão.</h2>
+      <p class="muted">Mede latência, download e upload nos servidores públicos da Cloudflare. Leva alguns segundos e não guarda nada.</p>
+      <div class="actions">
+        <button id="speed-btn" class="btn primary" type="button">Iniciar teste</button>
+      </div>
+      <p id="speed-status" class="small-note" role="status" aria-live="polite" hidden></p>
+      <div id="speed-results" class="grid speed-grid" hidden>
+        <div class="card"><p class="k">Latência</p><p id="s-latency" class="v mono">—</p></div>
+        <div class="card"><p class="k">Oscilação</p><p id="s-jitter" class="v mono">—</p></div>
+        <div class="card"><p class="k">Download</p><p id="s-download" class="v mono">—</p></div>
+        <div class="card"><p class="k">Upload</p><p id="s-upload" class="v mono">—</p></div>
+      </div>
+      <p class="small-note">Números aproximados: servidor, horário e tráfego da rede mudam o resultado. Não é o mesmo teste de provedores como Ookla.</p>
+    </section>
+
     <section class="panel" aria-labelledby="testar-titulo">
       <p class="label">Quer testar outro IP?</p>
       <h2 id="testar-titulo">Cole um IP para analisar.</h2>
@@ -118,5 +135,6 @@
   <script src="site.js"></script>
   <script src="vpn.js"></script>
   <script src="app.js"></script>
+  <script src="speedtest.js"></script>
 </body>
 </html>
